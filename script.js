@@ -216,3 +216,52 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+
+// Demo Popup Functionality
+const demoPopup = document.getElementById('demoPopup');
+const demoButtons = document.querySelectorAll('.schedule-demo, .btn-primary[aria-label="Schedule a demo"]');
+const closePopup = document.getElementById('closePopup');
+const demoForm = document.getElementById('demoForm');
+// Open popup
+demoButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        demoPopup.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+});
+// Close popup
+closePopup.addEventListener('click', () => {
+    demoPopup.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+});
+// Close popup when clicking outside
+demoPopup.addEventListener('click', (e) => {
+    if (e.target === demoPopup) {
+        demoPopup.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+// Handle form submission
+demoForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Here you would typically send the form data to your server
+    // For now, we'll just show a success message
+    const formData = new FormData(demoForm);
+    console.log('Demo requested:', Object.fromEntries(formData));
+    // Show success message
+    demoForm.innerHTML = `
+        <div class="success-message">
+            <h3>Thank you for your interest!</h3>
+            <p>We'll get back to you shortly to schedule your demo.</p>
+        </div>
+    `;
+    // Close popup after 3 seconds
+    setTimeout(() => {
+        demoPopup.classList.remove('active');
+        document.body.style.overflow = '';
+        // Reset form
+        demoForm.reset();
+    }, 3000);
+});
