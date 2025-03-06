@@ -1,0 +1,1060 @@
+/* product.css */
+:root {
+    --primary: #57c3d1;
+    --secondary: #97cc4e;
+    --background: #ffffff;
+    --text: #1a1a1a;
+    --text-light: #666666;
+    --border: #e5e5e5;
+    --radius: 0.5rem;
+    --transition: all 0.3s ease;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--background);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Navigation */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Enhanced Floating Elements */
+.floating-elements {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.float-element {
+    position: absolute;
+    opacity: 0.15;
+    filter: grayscale(100%);
+    transition: transform 0.3s ease;
+    animation: float 6s ease-in-out infinite;
+}
+
+.float-element:nth-child(1) {
+    left: 5%;
+    top: 20%;
+    width: 80px;
+    animation-delay: 0s;
+}
+
+.float-element:nth-child(2) {
+    right: 5%;
+    top: 60%;
+    width: 100px;
+    animation-delay: 2s;
+}
+
+.float-element:nth-child(3) {
+    left: 8%;
+    bottom: 15%;
+    width: 60px;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(10px, -10px);
+    }
+
+    50% {
+        transform: translate(0, -20px);
+    }
+
+    75% {
+        transform: translate(-10px, -10px);
+    }
+}
+
+/* Add Floating Elements */
+.floating-elements {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.float-element {
+    position: absolute;
+    opacity: 0.15;
+    filter: grayscale(100%);
+    transition: transform 0.3s ease;
+}
+
+/* Add animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(229, 229, 229, 0.3);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    font-size: 20px;
+}
+
+/* Ensuring all nav links have the same style */
+.nav-links a,
+.nav-links .dropbtn {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    position: relative;
+    display: inline-block;
+}
+
+/* Underline effect */
+.nav-links a::after,
+.nav-links .dropbtn::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease-in-out;
+}
+
+/* Hover effects */
+.nav-links a:hover,
+.nav-links .dropbtn:hover {
+    transform: scale(1.1);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after,
+.nav-links .dropbtn:hover::after {
+    width: 100%;
+}
+
+.logo img {
+    height: 90px;
+    margin-right: 2px;
+}
+
+/* Page Heading */
+.page-heading {
+    text-align: center;
+    margin-top: 8rem;
+    /* Pushes it below navbar */
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 50;
+    /* Ensures it appears above other elements */
+}
+
+.page-heading .main-title {
+    font-size: 2.8rem;
+    color: var(--primary);
+}
+
+/* Enhanced Banner Styles */
+/* Enhanced Banner Styles */
+/* Enhanced Banner Styles */
+.banner-container {
+    position: relative;
+    margin-top: 6rem;
+    /* Adjusted spacing below navbar */
+    width: 100%;
+    height: auto;
+    padding-left: 100px;
+    padding-right: 100px;
+    /* Adjust height dynamically */
+    overflow: hidden;
+    z-index: 40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(87, 195, 209, 0.2), rgba(151, 204, 78, 0.2));
+    /* Themed background */
+}
+
+/* Wrapper for banner images */
+.banner-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Default image (2048x154) */
+.banner-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Ensures full image display */
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+}
+
+/* Zoom effect on hover */
+.banner-container:hover .banner-image {
+    transform: scale(1.05);
+    /* Slight zoom effect */
+}
+
+/* Flowchart Container */
+/* Enhanced Banner Styles */
+.banner-container {
+    position: relative;
+    margin-top: 6rem;
+    /* Adjusted spacing below navbar */
+    width: 100%;
+    height: auto;
+    padding-left: 100px;
+    padding-right: 100px;
+    /* Adjust height dynamically */
+    overflow: hidden;
+    z-index: 40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(87, 195, 209, 0.2), rgba(151, 204, 78, 0.2));
+    /* Themed background */
+}
+
+/* Wrapper for banner images */
+.banner-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Default image (2048x154) */
+.banner-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Ensures full image display */
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+}
+
+/* Zoom effect on hover */
+.banner-container:hover .banner-image {
+    transform: scale(1.05);
+    /* Slight zoom effect */
+}
+
+/* Flowchart Container */
+.flow-container {
+    position: relative;
+    margin-top: 4rem;
+    width: 70%;
+    height: auto;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    overflow: hidden;
+    z-index: 40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(87, 195, 209, 0.2), rgba(151, 204, 78, 0.2));
+    /* Themed background */
+}
+
+/* Wrapper for flowchart image */
+.flow-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Flowchart image styling */
+.flow-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Ensures full image display */
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+}
+
+/* Zoom effect on hover */
+.flow-container:hover .flow-image {
+    transform: scale(1.05);
+    /* Slight zoom effect */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+
+    .banner-container,
+    .flow-container {
+        height: auto;
+        width: 90%;
+        /* Adjust width for smaller screens */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* Product Sections */
+.product-section {
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg,
+            rgba(87, 195, 209, 0.05) 0%,
+            rgba(151, 204, 78, 0.05) 100%);
+    z-index: 1;
+}
+
+.product-section.dark {
+    background: #f8f9fa;
+}
+
+/* Medical Background Elements */
+.medical-bg-element {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg,
+            rgba(87, 195, 209, 0.1),
+            rgba(151, 204, 78, 0.1));
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: 0;
+}
+
+.medical-bg-element.right {
+    right: -200px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.medical-bg-element.left {
+    left: -200px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Product Images and Content */
+.product-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.product-content.reversed {
+    flex-direction: row-reverse;
+}
+
+.product-image-container {
+    flex: 1;
+    position: relative;
+    max-width: 500px;
+    margin: 2rem 0;
+    border-radius: var(--radius);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.doctor-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.product-details {
+    flex: 1;
+    position: relative;
+}
+
+/* Floating Icons */
+.floating-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.float-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 0.6;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.float-icon:nth-child(1) {
+    right: -60px;
+    top: 20%;
+    animation-delay: 0.5s;
+}
+
+.float-icon:nth-child(2) {
+    left: -60px;
+    bottom: 20%;
+    animation-delay: 1s;
+}
+
+
+/* Add smooth transitions */
+.product-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.brain-scan-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--radius);
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translate(20px, 20px);
+}
+
+.scan-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .product-image-container {
+        margin: 1rem auto;
+    }
+
+    .brain-scan-overlay {
+        width: 100px;
+        height: 100px;
+        transform: translate(10px, 10px);
+    }
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    border-radius: 10px;
+    top: 120%;
+    left: 0;
+    overflow: hidden;
+}
+
+/* Dropdown menu links */
+.dropdown-content a {
+    display: block;
+    padding: 12px 18px;
+    font-size: 15px;
+    color: var(--secondary);
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .content-grid,
+    .card-grid,
+    .footer-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+/* Capabilities Section */
+.capabilities-section {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.capabilities-section h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+}
+
+/* Capabilities Grid */
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    margin-top: 2rem;
+    padding: 0;
+}
+
+/* Capability Items */
+.capability-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Hover Effect */
+.capability-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    background: var(--primary);
+    color: white;
+}
+
+/* Capability Dots */
+.capability-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--primary);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+/* Change Dot Color on Hover */
+.capability-item:hover .capability-dot {
+    background: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .capabilities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .capability-item {
+        padding: 1.2rem;
+        font-size: 1rem;
+    }
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: left;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: var(--accent);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-section p,
+.footer-section a {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-section a {
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.footer-section a:hover {
+    color: var(--highlight);
+    transform: scale(1.05);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+
+.social-link i {
+    color: #ffffff;
+    font-size: 2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-link:hover {
+    color: var(--highlight);
+}
+
+/* Address Styling */
+.footer-section .address {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-section .address a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-section .address a:hover {
+    color: var(--highlight);
+    text-decoration: underline;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Product Sections */
+.product-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.product-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.product-description {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+/* Anomalies Grid */
+.anomalies-grid {
+    margin-top: 3rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.anomaly-category {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.anomaly-category h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.anomaly-category ul {
+    list-style: none;
+}
+
+.anomaly-category li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.anomaly-category li:last-child {
+    border-bottom: none;
+}
+
+/* Capabilities Section */
+.capabilities-section {
+    margin-top: 3rem;
+}
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.capability-item {
+    background: white;
+    padding: 1rem;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.capability-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+}
+
+
+@media (max-width: 1024px) {
+    .product-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .product-content.reversed {
+        flex-direction: column;
+    }
+
+    .medical-bg-element {
+        width: 300px;
+        height: 300px;
+    }
+
+    .float-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .floating-elements {
+        display: none;
+    }
+
+    .medical-bg-element {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Mobile Menu */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--text);
+    margin: 5px 0;
+    transition: var(--transition);
+}
+
+/* Dark mode variables */
+:root {
+    --primary: #57c3d1;
+    --secondary: #97cc4e;
+    --background: #ffffff;
+    --text: #1a1a1a;
+    --text-light: #666666;
+    --border: #e5e5e5;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --section-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --radius: 0.5rem;
+    --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+    --background: #1a1a1a;
+    --text: #ffffff;
+    --text-light: #cccccc;
+    --border: #333333;
+    --card-bg: #2a2a2a;
+    --nav-bg: rgba(26, 26, 26, 0.95);
+    --section-bg: #1a1a1a;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    color: var(--primary);
+}
+
+/* Product Sections */
+.product-section {
+    background: var(--section-bg);
+    color: var(--text);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-section.dark {
+    background: var(--section-bg);
+}
+
+.product-section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg,
+            rgba(87, 195, 209, 0.05) 0%,
+            rgba(151, 204, 78, 0.05) 100%);
+    z-index: 1;
+}
+
+.product-content {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px var(--shadow);
+    transition: var(--transition);
+}
+
+.product-details {
+    color: var(--text);
+}
+
+.product-header h1 {
+    color: var(--text);
+}
+
+.product-description {
+    color: var(--text-light);
+}
+
+.capability-item {
+    background: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.capability-item:hover {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.flow-container {
+    background: var(--card-bg);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+/* Medical Background Elements */
+.medical-bg-element {
+    background: linear-gradient(135deg,
+            rgba(87, 195, 209, 0.1),
+            rgba(151, 204, 78, 0.1));
+    opacity: 0.5;
+}
+
+[data-theme="dark"] .medical-bg-element {
+    opacity: 0.2;
+}
+
+.floating-icons .float-icon {
+    opacity: 0.6;
+}
+
+[data-theme="dark"] .floating-icons .float-icon {
+    opacity: 0.4;
+    filter: brightness(0.8);
+}
+
+
+[data-theme="dark"] .navbar {
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .navbar.scrolled {
+    background: #1a1a1a;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
