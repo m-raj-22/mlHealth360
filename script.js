@@ -8,11 +8,35 @@ AOS.init({
 // Mobile Menu Toggle
 const menuBtn = document.getElementById('menuBtn');
 const navLinks = document.getElementById('navLinks');
+const dropdowns = document.querySelectorAll('.dropdown');
+
 
 menuBtn.addEventListener('click', () => {
     menuBtn.classList.toggle('active');
     navLinks.classList.toggle('active');
 });
+
+// Handle dropdowns in mobile view
+dropdowns.forEach(dropdown => {
+    const dropbtn = dropdown.querySelector('.dropbtn');
+
+    dropbtn.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        }
+    });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!menuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+        menuBtn.classList.remove('active');
+        navLinks.classList.remove('active');
+        dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+    }
+});
+
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
