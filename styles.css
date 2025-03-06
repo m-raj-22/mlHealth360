@@ -290,16 +290,22 @@ body {
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 1.5rem;
-    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero p {
     font-size: 1.25rem;
-    color: var(--text-light);
+    color: #ffffff;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 
 /* Stats Cards */
 .stats-grid {
@@ -511,12 +517,7 @@ h6 {
     display: none;
 }
 
-/* Hero Section */
-.hero p {
-    font-size: 1.25rem;
-    color: var(--text-light);
-    margin-bottom: 2rem;
-}
+
 
 .text-primary {
     color: var(--primary);
@@ -1501,5 +1502,511 @@ h6 {
 
     .stat-card .stat-number {
         font-size: 2rem;
+    }
+}
+
+
+/* CDSCO Badge */
+.cdsco-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.cdsco-badge i {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Features Section */
+.features-section {
+    padding: 6rem 0;
+    background: linear-gradient(to bottom, var(--background), rgba(87, 195, 209, 0.1));
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Feature Card Background */
+.feature-card {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.feature-content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    border-radius: var(--radius);
+    backdrop-filter: blur(5px);
+    transition: var(--transition);
+}
+
+/* Light mode styles */
+[data-theme="light"] .feature-content {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text);
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .feature-content {
+    background: rgba(26, 26, 26, 0.9);
+    color: #ffffff;
+}
+
+.feature-content i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.feature-content h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    color: inherit;
+}
+
+.feature-content p {
+    color: inherit;
+    opacity: 0.9;
+}
+
+/* Stats Section */
+.stats-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, rgba(87, 195, 209, 0.1), rgba(151, 204, 78, 0.1));
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background: var(--background);
+    padding: 2rem;
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Users Section */
+.users-section {
+    padding: 6rem 0;
+}
+
+.users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.user-card {
+    background: var(--background);
+    padding: 2rem;
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    min-width: 160px;
+    text-align: center;
+}
+
+/* Responsive Design for Buttons */
+@media (max-width: 768px) {
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* Demo Popup */
+.demo-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.demo-popup.active {
+    display: flex;
+}
+
+.popup-content {
+    background: var(--background);
+    padding: 3rem;
+    border-radius: var(--radius);
+    max-width: 700px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.close-popup {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text);
+    transition: var(--transition);
+}
+
+.close-popup:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--background);
+    color: var(--text);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(87, 195, 209, 0.2);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Success Message */
+.success-message {
+    text-align: center;
+    padding: 2rem;
+}
+
+.success-message h3 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.success-message p {
+    color: var(--text);
+    font-size: 1.2rem;
+}
+
+/* Form Grid for better layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* Responsive Design for Form */
+@media (max-width: 768px) {
+    .popup-content {
+        padding: 2rem;
+        width: 95%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .popup-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+}
+
+/* Button Styles */
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Responsive Design for Popup */
+@media (max-width: 768px) {
+    .popup-content {
+        padding: 1.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+
+/* Image Showcase Styles */
+.image-showcase {
+    padding: 4rem 0;
+    background: linear-gradient(to bottom, var(--background), rgba(87, 195, 209, 0.1));
+    overflow: hidden;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.image-card {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+    aspect-ratio: 16/9;
+}
+
+.image-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.showcase-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.image-card:hover .showcase-image {
+    transform: scale(1.1);
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 2rem;
+    color: white;
+    transform: translateY(100%);
+    transition: var(--transition);
+}
+
+.image-card:hover .image-overlay {
+    transform: translateY(0);
+}
+
+/* Stats Images */
+.stats-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Feature Card Background */
+.feature-card {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.feature-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: var(--radius);
+    backdrop-filter: blur(5px);
+}
+
+/* Animated Background Patterns */
+
+/* Animated Background Patterns */
+.pattern-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.pattern-circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: -150px;
+    top: 20%;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(87, 195, 209, 0.1), rgba(151, 204, 78, 0.1));
+    animation: rotate 20s linear infinite;
+}
+
+.pattern-square {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    right: -100px;
+    top: 40%;
+    background: linear-gradient(-45deg, rgba(87, 195, 209, 0.1), rgba(151, 204, 78, 0.1));
+    animation: float 6s ease-in-out infinite;
+}
+
+.pattern-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(87, 195, 209, 0.2) 2px, transparent 2px);
+    background-size: 30px 30px;
+    animation: slide 20s linear infinite;
+}
+
+/* Animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slide {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 30px 30px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .image-card {
+        aspect-ratio: 4/3;
+    }
+
+    .pattern-circle,
+    .pattern-square {
+        display: none;
     }
 }
