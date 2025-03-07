@@ -69,12 +69,30 @@
             <div class="video-overlay"></div>
         </div>
         <div class="container">
+            <!-- Update the CDSCO badge section -->
             <div class="hero-content" data-aos="fade-up">
-                <div class="cdsco-badge" data-aos="flip-up">
+                <div class="cdsco-badge certificate-trigger" data-aos="flip-up">
                     <i class="fas fa-certificate"></i>
                     <span>CDSCO Approved</span>
                 </div>
+            </div>
 
+            <!-- Add certificate popup structure -->
+            <div class="certificate-popup" id="certificatePopup">
+                <div class="popup-content">
+                    <button class="close-popup" id="closeCertificatePopup">&times;</button>
+                    <div class="certificate-container">
+                        <img src="images/permission.jpg" alt="CDSCO Certificate" class="certificate-image">
+                        <div class="zoom-controls">
+                            <button class="zoom-btn" id="zoomIn">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                            <button class="zoom-btn" id="zoomOut">
+                                <i class="fas fa-search-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="container">
                 <div class="hero-content" data-aos="fade-up">
@@ -135,8 +153,6 @@
             </form>
         </div>
     </div>
-    <!-- CDSCO Approval Highlight -->
-    <img src="images/cdsco.png" alt="CDSCO Approved" class="approval-badge">
 
     <!-- Local Impact Section -->
     <section class="impact-areas">
