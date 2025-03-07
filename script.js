@@ -265,3 +265,134 @@ demoForm.addEventListener('submit', (e) => {
         demoForm.reset();
     }, 3000);
 });
+
+
+// Certificate popup functionality with zoom and drag
+document.addEventListener('DOMContentLoaded', function () {
+    const certificateBadge = document.querySelector('.certificate-trigger');
+    const certificatePopup = document.getElementById('certificatePopup');
+    const closeCertificateBtn = document.getElementById('closeCertificatePopup');
+    const certificateImage = document.querySelector('.certificate-image');
+    const certificateContainer = document.querySelector('.certificate-container');
+    const zoomInBtn = document.getElementById('zoomIn');
+    const zoomOutBtn = document.getElementById('zoomOut');
+
+    let currentZoom = 1;
+    const zoomStep = 0.2;
+    const maxZoom = 3;
+    const minZoom = 0.5;
+
+    // Dragging functionality
+    let isDragging = false;
+    let startX, startY, translateX = 0, translateY = 0;
+
+    // Function to handle zoom
+    function handleZoom(increase) {
+        if (increase) {
+            currentZoom = Math.min(currentZoom + zoomStep, maxZoom);
+        } else {
+            currentZoom = Math.max(currentZoom - zoomStep, minZoom);
+        }
+        updateImageTransform();
+    }
+
+    // Function to update image transform
+    function updateImageTransform() {
+        certificateImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+    }
+
+    // Function to handle mouse down
+    function handleMouseDown(e) {
+        if (currentZoom > 1) {
+            isDragging = true;
+            certificateContainer.classList.add('grabbing');
+            startX = e.clientX - translateX;
+            startY = e.clientY - translateY;
+        }
+    }
+
+    // Function to handle mouse move
+    function handleMouseMove(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+        updateImageTransform();
+    }
+
+    // Function to handle mouse up
+    function handleMouseUp() {
+        isDragging = false;
+        certificateContainer.classList.remove('grabbing');
+    }
+
+    // Function to open certificate popup
+    function openCertificatePopup() {
+        certificatePopup.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        // Reset zoom and position when opening
+        currentZoom = 1;
+        translateX = 0;
+        translateY = 0;
+        updateImageTransform();
+    }
+
+    // Function to close certificate popup
+    function closeCertificatePopup() {
+        certificatePopup.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    // Event listeners
+    if (certificateBadge) {
+        certificateBadge.addEventListener('click', openCertificatePopup);
+    }
+
+    if (closeCertificateBtn) {
+        closeCertificateBtn.addEventListener('click', closeCertificatePopup);
+    }
+
+    // Zoom controls
+    zoomInBtn.addEventListener('click', () => handleZoom(true));
+    zoomOutBtn.addEventListener('click', () => handleZoom(false));
+
+    // Drag controls
+    certificateContainer.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    certificateContainer.addEventListener('mouseleave', handleMouseUp);
+
+    // Touch events for mobile
+    certificateContainer.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        handleMouseDown({ clientX: touch.clientX, clientY: touch.clientY });
+    });
+
+    document.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        handleMouseMove({ clientX: touch.clientX, clientY: touch.clientY, preventDefault: () => e.preventDefault() });
+    });
+
+    document.addEventListener('touchend', handleMouseUp);
+
+    // Close popup when clicking outside
+    certificatePopup.addEventListener('click', function (e) {
+        if (e.target === certificatePopup) {
+            closeCertificatePopup();
+        }
+    });
+
+    // Close popup on escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && certificatePopup.classList.contains('active')) {
+            closeCertificatePopup();
+        }
+    });
+});
+
+// Initialize AOS
+AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+});
