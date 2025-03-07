@@ -1894,8 +1894,8 @@ h6 {
 
 /* Stats Images */
 .stats-image {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     margin-bottom: 1rem;
     object-fit: cover;
